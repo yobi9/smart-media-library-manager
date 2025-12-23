@@ -1,0 +1,195 @@
+# أولاً، احذف ملف .gitignore القديم
+Remove-Item -Path .\.gitignore -Force
+
+# الآن أنشئ ملف .gitignore جديد ومنظم
+@'
+# ============================================
+# Smart Media Library Manager - .gitignore
+# ============================================
+
+# ----------------------------
+# Operating System Files
+# ----------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ----------------------------
+# IDE and Editor Files
+# ----------------------------
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-*
+*.code-workspace  # ملفات workspace شخصية
+
+# ----------------------------
+# Node.js and npm
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.pnpm-store/
+package-lock.json  # نستخدم package.json فقط في الجذر
+
+# ----------------------------
+# Environment Variables
+# ----------------------------
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.sample
+
+# ----------------------------
+# Build Outputs
+# ----------------------------
+dist/
+build/
+.next/
+out/
+coverage/
+.nyc_output/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# ----------------------------
+# Logs
+# ----------------------------
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ----------------------------
+# Database Files
+# ----------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ----------------------------
+# Media and Uploads
+# ----------------------------
+media/
+uploads/
+temp/
+tmp/
+*.tmp
+*.temp
+*.cache
+
+# ----------------------------
+# Archives and Executables
+# ----------------------------
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.tgz
+*.exe
+*.msi
+*.bat
+*.cmd
+*.vbs
+
+# ----------------------------
+# Backend Specific
+# ----------------------------
+backend/node_modules/
+backend/.env
+backend/.env.*
+backend/dist/
+backend/logs/
+backend/coverage/
+backend/.nyc_output/
+
+# ----------------------------
+# Frontend Specific
+# ----------------------------
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env.local
+frontend/.env.*.local
+frontend/next-env.d.ts
+frontend/.production
+
+# ----------------------------
+# Test and Coverage
+# ----------------------------
+coverage/
+.nyc_output/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ----------------------------
+# Docker
+# ----------------------------
+docker-compose.override.yml
+.env.docker
+
+# ----------------------------
+# Project Specific (ملفات هذا المشروع)
+# ----------------------------
+# Helper files (يجب عدم رفعها)
+Helper/
+Helper.rar
+media-library-helper-local.exe
+nircmd.*
+NirCmd.chm
+nssm-*.zip
+
+# Bat files (يمكن إعادة إنشائها)
+run-system.bat
+run.bat
+network-launch.bat
+start-helper.cmd
+start-watcher.cmd
+watcher.vbs
+
+# RAR files in test (نسخ احتياطية)
+test/backend.rar
+
+# ----------------------------
+# Security
+# ----------------------------
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+*.der
+
+# ----------------------------
+# Temporary Files
+# ----------------------------
+*.swp
+*.swo
+*~
+*.bak
+*.backup
+*.orig
+*.rej
+'@ | Out-File -FilePath .\.gitignore -Encoding UTF8
