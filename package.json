@@ -1,0 +1,44 @@
+{
+  "name": "smart-media-library-manager",
+  "version": "1.0.0",
+  "description": "Smart Media Library Manager - A local media server similar to Plex/Emby",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev -- --port 4000 --hostname 0.0.0.0\"",
+    "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start -- -p 4000 -H 0.0.0.0\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev -- --port 4000 --hostname 0.0.0.0",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start -- -p 4000 -H 0.0.0.0",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test1": "echo \"No tests specified\" && exit 0",
+    "test": "jest"
+  },
+  "keywords": [
+    "media-server",
+    "plex-alternative",
+    "media-library",
+    "nodejs",
+    "react",
+    "sqlite"
+  ],
+  "author": "Smart Media Library Manager",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "jest": "^30.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bootstrap": "^4.5.2",
+    "node-fetch": "^3.3.2",
+    "react-intersection-observer": "^9.16.0"
+  }
+}
